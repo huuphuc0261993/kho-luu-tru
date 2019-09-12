@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    do{
+    var a = parseInt(prompt('input a'));
+    var b = parseInt(prompt('input b'));
+        if(!isNaN(a,b)){
+            break;
+        }else{
+            alert('please try again a number');
+        }
+    }while(isNaN(a,b));
+    if(a%b==0){
+        alert('A chia het cho B');
+    } else {
+        alert('A khong chia het cho B')
+    }
+    </script>
+</body>
+</html>

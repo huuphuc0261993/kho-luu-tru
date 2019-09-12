@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+do {
+    var money = parseInt(prompt('Nhap doanh thu cua ban vao'));
+    if (!isNaN(money)) {
+        break;
+    } else {
+        alert('please try again a number');
+    }
+} while (isNaN(money));
+if (money >= 30000000 & money <= 50000000) {
+    alert('tien hoa hong cua ban la: '+ (2 / 100) * money);
+} else if (money < 30000000) {
+    alert('tien hoa hong cua ban la: 0');
+} else {
+    alert('tien hoa hong cua ban la: ' + (3 / 100) * money);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <table width='500'>
+                <tr style="font-size: 12px;text-align: center;">
+                    <td>Amount</td>
+                    <td>From Currency</td>
+                    <td>To Currency</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name='Money' type="number" id='number' value="1"></input>
+                    </td>
+                    <td>
+                        <select name="Currency" id='tiente1'>
+                            <option value="VN">Vietnam</option>
+                            <option value="$">USD</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Currency" width='200' id='tiente2'>
+                            <option value="VN">Vietnam</option>
+                            <option value="$">USD</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="submit" value="convert" onclick="myfuntion()"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <p id="09"></p>
+                </td>
+                </tr>
+            
+            </table>
+            <script>
+                function myfuntion() {
+                    var a = document.getElementById('number').value;
+                    var b = document.getElementById('tiente1').value;
+                    var c = document.getElementById('tiente2').value;
+                    
+                    if (b == 'VN' & c =='$') {
+                        document.getElementById('09').innerHTML = a/23000
+                    } else if ((b == '$') & (c == 'VN')) {
+                        document.getElementById('09').innerHTML = a * 23000
+                    } else {
+                        document.getElementById('09').innerHTML = a 
+                    }
+                }
+                       
+           
+            </script>
+    </body>
+</html>

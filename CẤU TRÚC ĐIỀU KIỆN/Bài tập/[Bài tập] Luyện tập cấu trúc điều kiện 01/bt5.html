@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var kiemtra =parseInt(prompt('Nhap diem kiem tra'));
+    var diemthi = parseInt(prompt('Nhap diem thi vao'));
+    var diemthick = parseInt(prompt('Nhap diem thi cuoi ki'));
+    var sum = (kiemtra + diemthi*2 + diemthick*3)/6
+    if(sum>=8){
+        alert("diem cua ban la:" +sum+' ban dat loai Gioi');
+    } else if(sum>=6.5){
+        alert("diem cua ban la:" +sum+' ban dat loai Kha');
+    }else if(sum>=5){
+        alert("diem cua ban la:" +sum+' ban dat loai TB');
+    }else{
+        alert("diem cua ban la:" +sum+' ban dat loai Kem')
+    }
+    </script>
+</body>
+</html>

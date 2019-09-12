@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CACULATOR</title>
+    <!-- <link rel="stylesheet" href="mystyle.css"> -->
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+     <table>
+        <tr>
+            <td colspan="5" ><input type="text" id='Result'></td>
+        </tr>
+        <tr>
+            <td><input class='btn' type="button" value="7" onclick="Result.value+='7'"></td>
+            <td><input class='btn' type="button" value="8" onclick="Result.value+='8'"></td>
+            <td><input class='btn' type="button" value="9" onclick="Result.value+='9'"></td>
+            <td><input class='btn' type="button" value="/" onclick="Result.value+='/'"></td>
+            <td><input class='btn' type="button" value='Del' onclick="Result.value=Result.value.substr(0,Result.value.length-1)"></td>
+        <tr>
+            <td><input class='btn' type="button" value="4" onclick="Result.value+='4'"></td>
+            <td><input class='btn' type="button" value="5" onclick="Result.value+='5'"></td>
+            <td><input class='btn' type="button" value="6" onclick="Result.value+='6'"></td>
+            <td><input class='btn' type="button" value="x" onclick="Result.value+='*'"></td>
+            <td><input class='btn' type="button" value='C' onclick="Result.value=''"></td>
+        <tr>
+            <td><input class='btn' type="button" value="1" onclick="Result.value+='1'"></td>
+            <td><input class='btn' type="button" value="2" onclick="Result.value+='2'"></td>
+            <td><input class='btn' type="button" value="3" onclick="Result.value+='3'"></td>
+            <td><input class='btn' type="button" value="+" onclick="Result.value+='+'"></td>
+            <td rowspan="2"><input id='equ' class='btn' type="button" value='=' onclick="Result.value=eval(Result.value)"></td>
+        <tr>
+            <td colspan="2"><input id="zero" class='btn' type="button" value="0" onclick="Result.value+='0'"></td>
+            <td><input class='btn' type="button" value="." onclick="Result.value+='.'"></td>
+            <td><input class='btn' type="button" value="-" onclick="Result.value+='-'"></td>    
+        </tr>
+    </table> 
+    
+    </table>
+</html>
+</body>

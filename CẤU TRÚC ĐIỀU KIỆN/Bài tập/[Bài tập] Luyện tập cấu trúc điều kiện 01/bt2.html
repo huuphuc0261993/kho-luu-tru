@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        do {
+            var tuoi = prompt('Nhap tuoi vao');
+            if (!isNaN(tuoi)) {
+                break;
+            } else {
+                alert('please try again a number');
+            }
+        } while (isNaN(tuoi));
+        if (tuoi >= 16) {
+            alert('Đu dieu kien ao lop 10')
+        } else {
+            alert('Khong dieu kien ao lop 10');
+        }
+    </script>
+</body>
+</html>

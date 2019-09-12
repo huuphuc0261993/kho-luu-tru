@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input[type='submit']{
+            border-radius: 3px; border:black solid 2px;
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="position: absolute; left:220px ;top: 150px">Do you love me?</h1>
+    <input type="button" value="yes" onclick="yesclick()" style="position:absolute; left:280px; top:235px;">
+    <input type="button" value="no" onmouseover="noclick()" style="position:absolute; left:340px; top:235px;" id="no">
+    <script>
+        function yesclick() {
+            alert('Yes. you are right');
+            }
+        function noclick(){
+            let x = Math.round(Math.random() * window.innerWidth)
+            let y = Math.round(Math.random() * window.innerHeight)
+            document.getElementById('no').style.left = x + 'px';
+            document.getElementById('no').style.top = y + 'px';
+        }
+    </script>
+    
+</body>
+</html>

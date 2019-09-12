@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Cân nặng(kg)</th>
+            <th>Chiều cao(m)</th>
+        </tr>
+        <tr>
+            <td><input type="number" value="Input weight" id="weight"></td>
+            <td><input type="number" value="Input high" id="high"></td>
+            <td><input type="submit" value="Submit" onclick='myfunction()'></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                 <p id='demo'></p>
+            </td>
+            
+        </tr>
+    </table>
+    <script>
+        function myfunction(){
+            var weight = document.getElementById("weight").value;
+            var high = document.getElementById("high").value;
+            var bmi = weight / (Math.pow(high,2));
+
+            if (bmi < 18.5) {
+                document.getElementById('demo').innerHTML = 'BMI của bạn là: '+bmi+ ', Underweight'
+            } else if (bmi >= 18.5 & bmi < 25) {
+                document.getElementById('demo').innerHTML = 'BMI của bạn là: '+bmi+ ', Normal'
+            } else if (bmi >= 25 & bmi < 30) {
+                document.getElementById('demo').innerHTML = 'BMI của bạn là: '+bmi+ ', Overweight'
+            } else {
+                document.getElementById('demo').innerHTML = 'BMI của bạn là: '+bmi+ ', Obese'
+            }
+        }
+    </script>
+</body>
+</html>

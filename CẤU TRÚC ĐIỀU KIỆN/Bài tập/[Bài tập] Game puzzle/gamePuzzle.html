@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="gamePuzzle.css">
+    
+</head>
+<body >
+    <div class="layer1" style="box-shadow: 0px 0px 50px 50px rgb(255, 255, 255)" id="shadow">
+    <img src='images2/anh2_1.jpg' onclick="click2_1()" id="one" alt="one1"><br>
+    <img src='images2/anh2_2.jpg' onclick="click2_2()" id="two" alt="one2"><br>
+    <img src='images2/anh2_3.jpg' onclick="click2_3()" id="three" alt='one3'><br>
+    </div>
+    
+    <script>
+        let one = document.getElementById('one');
+        let two = document.getElementById('two');
+        let three = document.getElementById('three');
+       function click2_1(){
+           let random = Math.floor((Math.random()*3)+1)
+           switch(random){
+               case 1:
+               one.src='images2/anh2_1.jpg'
+               one.alt ="one1"
+               break;
+               case 2:
+               one.src='images2/anh3_1.jpg'
+               one.alt = 'two1'
+               break;
+               case 3:
+               one.src='images2/anh1_1.jpg'
+               one.alt = 'three1'
+               break;
+           }
+           finish()
+       }
+       function click2_2(){
+           let random = Math.floor((Math.random()*3)+1)
+           switch(random){
+               case 1:
+               two.src='images2/anh2_2.jpg'
+               two.alt ="one2"
+               break;
+               case 2:
+               two.src='images2/anh3_2.jpg'
+               two.alt ="two2"
+               break;
+               case 3:
+               two.src='images2/anh1_2.jpg'
+               two.alt ="three2"
+               break;
+           }
+           finish()
+       }
+       function click2_3(){
+           let random = Math.floor((Math.random()*3)+1)
+           switch(random){
+               case 1:
+               three.src='images2/anh2_3.jpg'
+               three.alt = "one3"
+               break;
+               case 2:
+               three.src='images2/anh3_3.jpg'
+               three.alt = "two3"
+               break;
+               case 3:
+               three.src='images2/anh1_3.jpg'
+               three.alt = "three3"
+               break;
+           }
+           finish()
+       }
+    function checkWin() {
+        return one.alt + two.alt + three.alt === 'one1one2one3' || one.alt + two.alt + three.alt === 'two1two2two3' || one.alt + two.alt + three.alt === 'three1three2three3'
+    }
+    function finish() {
+        if (checkWin()) {
+            document.getElementById('shadow').style = "box-shadow: 0px 0px 10px 10px rgb(255, 0, 0)"
+        }
+        else {
+            document.getElementById('shadow').style = "box-shadow: 0px 0px 50px 50px rgb(255, 255, 255)"
+        }
+    }
+
+    </script>
+</body>
+</html>

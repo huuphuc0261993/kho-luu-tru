@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2"><input type= 'number' id='nhap1' ></td>
+            <td colspan="2"><input type= 'number' id='nhap2' ></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Addition(+)" onclick="sum()" ></td>
+            <td><input type="submit" value="Subtraction(-)" onclick="subtraction()"></td>
+            <td><input type="submit" value="Multiplication(X)" onclick="multiplication()"></td>
+            <td><input type="submit" value="Division(/)" onclick="division()"></td>
+        </tr>    
+    </table>
+    <p id='showresult'></p>
+    <script>
+    function sum(){
+    let num1 = parseInt(document.getElementById('nhap1').value);
+    let num2 = parseInt(document.getElementById('nhap2').value);
+    let sum= num1 + num2
+    document.getElementById('showresult').innerHTML = ' Result is: ' + sum
+      };  
+    function subtraction(){
+    let num1 = parseInt(document.getElementById('nhap1').value);
+    let num2 = parseInt(document.getElementById('nhap2').value);
+    let subtraction= num1 - num2
+    document.getElementById('showresult').innerHTML = ' Result is: ' + subtraction
+      };
+    function multiplication(){
+    let num1 = parseInt(document.getElementById('nhap1').value);
+    let num2 = parseInt(document.getElementById('nhap2').value);
+    let multiplication= num1 * num2
+    document.getElementById('showresult').innerHTML = ' Result is: ' + multiplication
+      };
+    function division(){
+    let num1 = parseInt(document.getElementById('nhap1').value);
+    let num2 = parseInt(document.getElementById('nhap2').value);
+    let division= num1 / num2
+    document.getElementById('showresult').innerHTML = ' Result is: ' + division
+      };
+    </script>
+    
+</body>
+</html>

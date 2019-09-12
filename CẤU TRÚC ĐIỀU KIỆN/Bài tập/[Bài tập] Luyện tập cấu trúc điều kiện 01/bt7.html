@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+do {
+    var minute = parseInt(prompt('Nhap so phut ban goi vao'));
+    if (!isNaN(minute)) {
+        break;
+    } else {
+        alert('please try again a number');
+    }
+} while (isNaN(minute));
+alert('So tien ban phai tra: ' +minute*500);
+</script>
+</body>
+</html>

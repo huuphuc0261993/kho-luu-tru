@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+do {
+            let chudien = prompt('Nhập số chữ điện vào đây:');
+            if (!isNaN(chudien)) {
+                if (chudien>=0 & chudien<=30) {
+                    alert('Số tiền bạn phải trả là: ' + chudien*1500+'VND');
+                } else if(chudien>30){
+                    alert('Số tiền bạn phải trả là: ' + chudien*2000+'VND');
+                }else{
+                    alert('Số tiền bạn phải trả là: ' + chudien*0+'VND')
+                }
+                break;
+            } else
+                alert('please try again!')
+        } while (isNaN)       
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        do {
+            let tuoi = prompt('Nhập tuổi của bạn vào đây:');
+            if (!isNaN(tuoi)) {
+                if (tuoi > 0 & tuoi < 120 & tuoi == parseInt(tuoi)) {
+                    alert('Tuổi của bạn là: ' + tuoi);
+                } else {
+                    alert('Vui lòng nhập lại tuổi của bạn');
+                }
+                break;
+            } else
+                alert('please try again!')
+        } while (isNaN)    
+    </script>
+</body>
+</html>

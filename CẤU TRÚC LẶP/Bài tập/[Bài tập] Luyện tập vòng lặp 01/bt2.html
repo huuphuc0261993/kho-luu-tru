@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    do {
+            let num = prompt('input is number');
+            if (!isNaN(num)) {
+                for (num; num > 100;) {
+                    alert('bạn nên giảm nhiệt độ');
+                    break;
+                }
+                for (num; num <20;) {
+                    alert('bạn nên tăng nhiệt độ');
+                    break;
+                }
+                for (num; num<100 && num>20;) {
+                    alert('great');
+                    break;
+                }
+            } else alert('Please try again. it is a number');
+        } while (isNaN);
+    
+    </script>
+</body>
+</html>
