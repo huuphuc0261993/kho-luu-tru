@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let input = prompt('Nhập từ bạn muốn dịch');
+    let arr1 = new Array('one','two','three','four','five','six');
+    let arr2 = new Array('1','2','3','4','5','6');
+    let m=0;
+    for(let i=0;i<=arr1.length;i++){
+        if(arr1[i]==input){
+            for(let j=0;j<=arr2.length;j++){
+                if(i==j){
+                    alert(arr2[j]);    
+                }
+            }
+            break;
+        }else{
+            alert('ko tim thấy');
+            break;
+        }
+    }
+    Console.log(m);
+    </script>
+</body>
+</html>
