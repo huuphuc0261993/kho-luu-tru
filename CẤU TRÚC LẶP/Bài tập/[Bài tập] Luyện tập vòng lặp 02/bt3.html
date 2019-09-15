@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,69 @@
     <title>Document</title>
 </head>
 <body>
+    <p><b>Bài 3:</b>In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau</p>
+    <h2 id='res3'></h2>
+    <h2 id="res4"></h2>
     <script>
-    //truong hop 1
-    // let n = parseInt(prompt('nhap gia tri n'));
-    // for(i=0;i<=n;i++){
-    //     for(j=0;j<=i;j++){
-    //         document.write('*')
-    //     }
-    //     document.write('<br/>')
-    // }
-    //truong hop 2
-//    let n = 0;
-//     for (i = 5; i >= n; i--) {
-//         for (j = 0; j <= i; j++) {
-//             document.write('*')
-//         }
-//         document.write('<br/>')
-//     }
-        // truong hop 3
-    let n = 5;
-    for(i=0;i<=5;i++){
-        for(j=0;j<=i;j++){
-            document.write(' '+'*')
+
+        function display1() {
+            let n = 5;
+            for (i = 0; i <= n; i++) {
+                for (j = 0; j <= i; j++) {
+                    document.write('*')
+                }
+                document.write('<br/>')
+            }
         }
-        document.write('<br/>')
-    }
+
+        function display2() {
+            let n = 0;
+            for (i = 5; i >= n; i--) {
+                for (j = 0; j <= i; j++) {
+                    document.write('*')
+                }
+                document.write('<br/>')
+            }
+        }
+
+        function display3() {
+            let n = 5;
+            let row = " ";
+            for (let i = 1; i <= n; i++) {
+                row +="<br/>"
+                for (let j = 1; j <= (n - i); j++) {
+                    row += "&nbsp&nbsp";
+                }
+                for (let k = 1; k <= i; k++) {
+                    row += '*';
+                }
+                
+            }
+            
+            document.getElementById('res3').innerHTML=row;
+        }
+        function display4() {
+            let n = 5;
+            let row = " ";
+            for (let i = 0; i <= n; i++) {
+                row +="<br/>"
+                for (let j = 1; j <= i; j++) {
+                    row += "&nbsp&nbsp";
+                }
+                for (let j = 5; j>i; j--) {
+                    row += '*';
+                }
+                
+            }
+            
+            document.getElementById('res4').innerHTML=row;
+        }
+        display1();
+        document.write('<br/>');
+        display2();
+        display3();
+        display4();
     </script>
 </body>
+
 </html>
