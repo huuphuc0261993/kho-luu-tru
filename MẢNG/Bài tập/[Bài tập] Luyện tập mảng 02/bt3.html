@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p><b>Bài 3: </b>Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.</p>  
+<script>
+let a = [
+    [1, 2, 1, 24],
+    [8, 11, 9, 4],
+    [7, 0, 7, 27],
+    [7, 4, 28, 14],
+    [3, 10, 26, 7]
+],
+    count=0;
+    for(let i in a){
+        for(let j in a[i]){
+            count = count + 1
+        }
+        break;
+    }
+    document.write('Array is: Row: '+ a.length+' , '+'Colum: '+ count);
+</script>
+</body>
+</html>
