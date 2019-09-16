@@ -6,7 +6,78 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+   *{box-sizing: border-box}
+   .container{
+       width: 300px;
+       overflow: hidden;
+       margin: 50px auto 0
+   }
+   .container .box{
+       width: 100px;
+       height: 100px;
+       float: left;
+       border: 1px solid black; transition: all .25s ease-in-out;font-size: 85px;text-align: center;
+   }
+
+</style>
 <body>
-    <input type="button" onclick="start()" value="start">
+    <div class="container" id="main">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+        <div class="box" id="box4"></div>
+        <div class="box" id="box5"></div>
+        <div class="box" id="box6"></div>
+        <div class="box" id="box7"></div>
+        <div class="box" id="box8"></div>
+        <div class="box" id="box9"></div>
+    </div>
+    <script>
+    function getWinner(){
+    let box1 = document.getElementById('box1'),
+        box2 = document.getElementById('box2'),
+        box3 = document.getElementById('box3'),
+        box4 = document.getElementById('box4'),
+        box5 = document.getElementById('box5'),
+        box6 = document.getElementById('box6'),
+        box7 = document.getElementById('box7'),
+        box8 = document.getElementById('box8'),
+        box9 = document.getElementById('box9');
+    if(box1.innerHTML!==''&& box1.innerHTML==box2.innerHTML&&box1.innerHTML==box3.innerHTML)
+        alert('You win')
+     else if(box4.innerHTML!==''&& box4.innerHTML==box5.innerHTML&&box4.innerHTML==box6.innerHTML)
+        alert('You win')
+    else if(box7.innerHTML!==''&& box7.innerHTML==box8.innerHTML&&box7.innerHTML==box9.innerHTML)
+        alert('You win')
+    else if(box1.innerHTML!==''&& box1.innerHTML==box4.innerHTML&&box1.innerHTML==box7.innerHTML)
+        alert('You win')
+    else if(box2.innerHTML!==''&& box2.innerHTML==box5.innerHTML&&box2.innerHTML==box8.innerHTML)
+        alert('You win')
+    else if(box3.innerHTML!==''&& box3.innerHTML==box6.innerHTML&&box3.innerHTML==box9.innerHTML)
+        alert('You win')
+    else if(box1.innerHTML!==''&& box1.innerHTML==box5.innerHTML&&box1.innerHTML==box9.innerHTML)
+        alert('You win')
+    else if(box3.innerHTML!==''&& box3.innerHTML==box5.innerHTML&&box3.innerHTML==box7.innerHTML)
+        alert('You win')
+    }
+    let boxes = document.querySelectorAll('#main div');
+    let X_or_O = 0;
+    for(i=0;i<boxes.length;i++){
+        boxes[i].onclick=function (){
+            if(this.innerHTML!=="X"&&this.innerHTML!=="O"){
+                if(X_or_O%2===0){
+                    this.innerHTML="X";
+                    getWinner();
+                    X_or_O+=1;
+                }else{
+                    this.innerHTML="O";
+                    getWinner();
+                    X_or_O+=1;
+                }
+            }
+        }
+    }
+    </script>
 </body>
 </html>
