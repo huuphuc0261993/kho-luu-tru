@@ -13,15 +13,18 @@
         tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ ).</p>
     <script>
         let arr = new Array();
-        let input = prompt('import your string: ');
-        arr=input;
-        for( let i = 0;i<arr.length;i++){
-            if(arr[i]=="-"){
-                arr[i]='_';
+        let num = parseInt(prompt('import your number array: '));
+        for (j = 0; j < num; j++) {
+            let name = prompt('import your string:');
+            let n = name.length;
+            for (i = 0; i < n; i++) {
+                arr[i] = name[i]
+                if (arr[i] == "-") {
+                    arr[i] = '_';
+                }
             }
+            document.write(arr.join(" ")+' , ');
         }
-        document.write(arr.join());
-
     </script>
 </body>
 

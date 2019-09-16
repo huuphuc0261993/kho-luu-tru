@@ -9,13 +9,13 @@
 <body>
     <p><b>Bài 5:</b> Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, 
         số tháng cho vay và lãi xuất hàng tháng.</p>  
-    <label for="a"> Số tiền gửi vào ngân hàng :</label> 
-    <input type="text" value="" id="a">      
+    <label for="p"> Số tiền vay ngân hàng :</label> 
+    <input type="text" value="" id="p">      
 
     <label for="r"> lãi suất (%):</label> 
     <input type="text" value="" id="r"> 
 
-    <label for="n"> Số tháng gửi :</label> 
+    <label for="n"> Số tháng vay :</label> 
     <input type="text" value="" id="n"> 
 
     <input type="button" value="Calculate" onclick="Calculate()">
@@ -23,14 +23,18 @@
     <script>
         let res = document.getElementById("result");
         function Calculate() {
-            let a = parseFloat(document.getElementById("a").value);
+            let p = parseFloat(document.getElementById("p").value);
             let r = parseFloat(document.getElementById("r").value);
             let n = parseFloat(document.getElementById("n").value);
             let result = 0 ;
-            if (isNaN(a)||isNaN(r)||isNaN(n)) {
+            if (isNaN(p)||isNaN(r)||isNaN(n)) {
                 res.innerHTML = " input  must be a number "
             }  else {
-                result = a*(Math.pow((1+r),n));
+                let lai=0;
+                for(let i=1;i<n+1;i++){
+                    lai=lai+(p-(i-1)*(p/n))*r
+                    result= lai
+                }
                 res.innerHTML = result;
             }
         }
