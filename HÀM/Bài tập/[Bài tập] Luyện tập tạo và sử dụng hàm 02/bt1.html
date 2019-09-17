@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        do {
+            let arr = [];
+            let sum = 0;
+            let n = parseInt(prompt('nhập số phần tử bạn cần hiển thị'));
+            if (!isNaN(n) && n>0) {
+                for (let i = 0; i < n; i++) {
+                    arr[i] = Math.floor(Math.random() * 100+1);
+                    if (arr[i] % 2 == 0) {
+                        sum = sum + 1;
+                    }
+                }
+                document.write("mảng của bạn là " + arr + '<br/>');
+                document.write('Số lượng số chẵn trong mảng: ' + sum);
+            } else {
+                alert('Bạn phải nhập một số nguyên dương');
+            }
+        } while (isNaN(n));
+
+
+
+    </script>
+</body>
+
+</html>

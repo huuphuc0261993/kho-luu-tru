@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><b>Thực hành: </b>Xây dựng hàm nhận vào một tham số là một mảng cho trước.
+        Hàm thực hiện tìm giá trị nhỏ nhất trong mảng và trả về giá trị đó.</p>
+    <script>
+        function minArray1(arr) {
+            let min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+
+            }
+            return min;
+        }
+        let arr1 = [3, 5, 1, 8, -3, 7, 8];
+        let min1 = minArray1(arr1);
+        alert("Value min Array1: " + min1);
+
+        function minArray2(arr) {
+            let min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+        let arr2 = [7, 12, 6, 9, 20, 56, 89];
+        let min2 = minArray2(arr2);
+        alert("Value min Array2: " + min2);
+
+
+        function minArray3(arr) {
+            if (arr.length == 0) {
+                'Array empty';
+            } else {
+                let min = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < min) {
+                        min = arr[i];
+                    }
+                }
+                return min;
+            }
+        }
+        let arr3 = [];
+        let min3 = minArray3(arr3);
+        alert("Value min Array3: " + min3);
+
+        function minArray4(arr) {
+            let min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+        let arr4 = [0, 0, 0, 0, 0, 0];
+        let min4 = minArray4(arr4);
+        alert("Value min Array4: " + min4);
+    </script>
+</body>
+
+</html>

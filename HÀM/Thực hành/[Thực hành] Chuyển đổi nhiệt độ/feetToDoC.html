@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><b>Thực hành: </b> Xây dựng hàm để chuyển đổi từ độ F cho trước sang độ C theo công thức sau: C = (F - 32)/1.8
+    </p>
+    <h2>Temperature Converter</h2>
+    <p>Type a value in a the Fahrenheit field to convert the value to Celcius:
+        <label for="#">Fahrenheit </label><input type="number" id='inputF' oninput="celcius(this.value)"
+            placeholder="Fahrenheit">
+    </p>
+    <p>Celcius: <span id='outputCelsius'></span></p>
+    <script>
+        function celcius(valNum) {
+            valNum = parseFloat(valNum)
+            document.getElementById('outputCelsius').innerHTML = (valNum - 32) / 1.8;
+        }
+
+    </script>
+</body>
+
+</html>

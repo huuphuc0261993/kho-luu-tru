@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><b>Bài tập: </b>Chuyển đổi giữa feet và meters</p>
+    <input type="text" id='value'>
+    <select name="" id="value1">
+        <option value="feet">feet</option>
+        <option value="meter">meter</option>
+    </select>
+    <select name="" id="value2">
+        <option value="meter">meter</option>
+        <option value="feet">feet</option>
+    </select>
+    <button onclick="change()">Change</button>
+    <p>Giá trị sau khi chuyển đổi là: <span id='result'></span></p>
+    <script>
+        function change() {
+            let feet = document.getElementById('value1').value;
+            let meter = document.getElementById('value2').value;
+            let change = document.getElementById('value').value;
+            if (feet == 'feet' & meter == 'meter') {
+                document.getElementById('result').innerHTML = 0.305 * change;
+            }
+            if (feet == 'meter' & meter == 'feet') {
+                document.getElementById('result').innerHTML = 3.279 * change;
+            }
+            if (feet == 'meter' & meter == 'meter' || feet == 'feet' & meter == 'feet')
+                document.getElementById('result').innerHTML = change;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let star = ['Ursa_Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa_Major', 'Leo'];
+        let input = prompt('import your name: ');
+        let count = 0;
+        function find() {
+            for (let i = 0; i < name.length; i++) {
+                if (name[i] == input) {
+                    document.write(star[i]);
+                    break;
+                }
+                count = count + 1;
+            }
+            if (count == name.length) {
+                alert('không tìm thấy giá trị');
+            }
+
+        }
+        find(input);
+
+    </script>
+</body>
+
+</html>
