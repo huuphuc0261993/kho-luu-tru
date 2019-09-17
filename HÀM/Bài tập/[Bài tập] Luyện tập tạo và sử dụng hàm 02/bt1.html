@@ -10,26 +10,44 @@
 
 <body>
     <script>
-        do {
-            let arr = [];
-            let sum = 0;
-            let n = parseInt(prompt('nhập số phần tử bạn cần hiển thị'));
-            if (!isNaN(n) && n>0) {
-                for (let i = 0; i < n; i++) {
-                    arr[i] = Math.floor(Math.random() * 100+1);
-                    if (arr[i] % 2 == 0) {
-                        sum = sum + 1;
+        let input = prompt("nhập chuỗi vào");
+        let arr = [];
+        function palindrome() {
+            for (let k = 0; k < input.length; k++) {
+                arr[k] = input[k]
+            }
+            if (arr.length % 2 === 0) {
+                let j = 1;
+                let count = 0;
+                for (let i = 0; i < arr.length / 2; i++) {
+                    if (arr[i] === arr[arr.length - j]) {
+                        count = count + 1;
+                        j++;
                     }
                 }
-                document.write("mảng của bạn là " + arr + '<br/>');
-                document.write('Số lượng số chẵn trong mảng: ' + sum);
+                if (count == arr.length / 2) {
+                    alert('là chuỗi palindrome')
+                } else {
+                    alert('không phải là chuỗi palindrome')
+                }
+
             } else {
-                alert('Bạn phải nhập một số nguyên dương');
+                let j = 1;
+                let count = 0;
+                for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+                    if (arr[i] === arr[Math.floor(arr.length - j)]) {
+                        count = count + 1;
+                        j++;
+                    }
+                }
+                if (count == Math.floor(arr.length / 2)) {
+                    alert('là chuỗi palindrome')
+                } else {
+                    alert('không phải là chuỗi palindrome')
+                }
             }
-        } while (isNaN(n));
-
-
-
+        }
+        palindrome(input);
     </script>
 </body>
 
