@@ -11,18 +11,22 @@
 <body>
     <script>
         do {
-            let input = parseInt(prompt('import your number:'));
-            let product;
-            if (!isNaN(input)) {
-                function sqr() {
-                    product = input ** 2;
-                    alert('product is: ' + product);
+            let n = parseInt(prompt('nhập số lượng trong mảng'));
+           function change(){
+            if (!isNaN(n)) {
+                let i = 0;
+                let arr = [];
+                for (i = 0; i < n; i++) {
+                    let input = parseInt(prompt('nhập giá trị vào'));
+                    arr[i] = input;
                 }
+                document.write(arr.reverse());
             } else {
                 alert('please try again a number');
             }
+        }
         } while (!isNaN);
-        sqr();
+        change();
 
     </script>
 </body>

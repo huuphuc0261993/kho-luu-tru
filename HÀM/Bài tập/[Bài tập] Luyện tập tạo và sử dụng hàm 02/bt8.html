@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    do {
+            let n = prompt('nhập số lượng trong mảng');
+           function change(){
+            if (!isNaN(n)) {
+                let i = 0;
+                let arr = [];
+                for (i = 0; i < n; i++) {
+                    do{
+                    let input = prompt('nhập giá trị vào');
+                    if(!isNaN(input)){
+                    arr[i] = input;
+                } else{
+                alert('please try again a number');
+                }
+            }while(!isNaN)
+            }
+                document.write(arr.reverse());
+            } else {
+                alert('please try again a number');
+            }
+        }
+        } while (!isNaN);
+        change();
+    </script>
+</body>
+</html>

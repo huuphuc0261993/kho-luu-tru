@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        do{
+        let n = prompt('nhập số lượng trong mảng');
+        if(!isNaN(n)){
+        function find() {
+            let i = 0;
+            let arr = [];
+            for (i = 0; i < n; i++) {
+                let input = prompt('nhập giá trị vào');
+                arr[i] = input;
+            }
+            let check = prompt('nhập ký tự bạn muốn kiểm tra');
+            let count = 0;
+            for (let j = 0; j < arr.length; j++) {
+                if(check==arr[j]){
+                    count = count+1;
+                }
+            }
+            document.write('Mảng của bạn là: ' + arr);
+            alert('số lần lặp là: ' + count)
+        }
+    }else{
+        alert('please try again a number');
+    }
+    }while(!isNaN)
+        find();
+
+
+    </script>
+</body>
+
+</html>

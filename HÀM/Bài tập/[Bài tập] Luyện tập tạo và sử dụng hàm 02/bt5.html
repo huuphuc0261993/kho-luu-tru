@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function value(){
+            let num1=parseInt(prompt('import your number one: ')),
+                num2=parseInt(prompt('import your number two: ')),
+                num3=parseInt(prompt('import your number three: '));
+                do{
+                    if(!isNaN(num1) && !isNaN(num2) && !isNaN(num3)){
+                        if(num1<num2 && num1<num3){
+                            alert('smallest value is: '+ num1);
+                        } else if(num2<num1 && num2<num3){
+                            alert('smallest value is: '+ num2);
+                        }else{
+                            alert('smallest value is: '+ num3)
+                        }
+                    }else{
+                        alert('please try again a number');
+                    }
+                }while(!isNaN)
+        }
+           value();
+       </script>
+</body>
+</html>

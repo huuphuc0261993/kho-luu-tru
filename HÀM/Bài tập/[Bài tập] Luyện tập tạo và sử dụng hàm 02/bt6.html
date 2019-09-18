@@ -12,17 +12,21 @@
     <script>
         do {
             let input = parseInt(prompt('import your number:'));
-            let product;
             if (!isNaN(input)) {
-                function sqr() {
-                    product = input ** 2;
-                    alert('product is: ' + product);
+                function check() {
+                    if (input > 0) {
+                        alert(true)
+                    } else if (input === 0) {
+                        alert('0');
+                    } else {
+                        alert(false)
+                    }
                 }
             } else {
                 alert('please try again a number');
             }
         } while (!isNaN);
-        sqr();
+        check();
 
     </script>
 </body>
