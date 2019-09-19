@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Temperature {
+            constructor(_Celsius) {
+                this.celsius = _Celsius;
+            }
+            fahrenheit() {
+                let fahrenheit = this.celsius * 1.8 + 32
+                return fahrenheit;
+            }
+            kelvin() {
+                let kelvin = this.celsius * 273.15
+                return kelvin;
+            }
+        }
+        let celsius = new Temperature(25);
+        let fahrenheit = celsius.fahrenheit();
+        let kelvin = celsius.kelvin();
+        document.write('Fahreheit is: '+ fahrenheit+"<br/>"+'Kelvin is: '+kelvin)
+    </script>
+</body>
+
+</html>
