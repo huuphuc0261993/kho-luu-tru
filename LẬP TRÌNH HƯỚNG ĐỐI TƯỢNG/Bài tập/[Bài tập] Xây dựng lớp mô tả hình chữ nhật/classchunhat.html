@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <canvas style="background-color: black" id="myCanvas" width="600" height="400"></canvas>
+    <script>
+        class Rectangle
+        {
+            constructor(_width,_height){
+                this.width=_width;
+                this.height=_height;
+            }
+            area(){
+                return this.width * this.height;
+            }
+            perimeter(){
+                let p = (this.width+this.height)*2;
+                return p;
+            }
+            draw(){
+                let canvas =document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(0,0,this.width,this.height);
+            }
+        }
+        let hinhchunhat= new Rectangle(600,400);
+        alert(hinhchunhat.area());
+        alert(hinhchunhat.perimeter());
+        hinhchunhat.draw();
+    </script>
+</body>
+</html>

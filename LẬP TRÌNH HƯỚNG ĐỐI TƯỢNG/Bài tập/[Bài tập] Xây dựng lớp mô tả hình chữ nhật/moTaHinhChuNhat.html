@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <canvas  id="myCanvas" ></canvas>
+    <script>
+    let Rectangle = function(width,height){
+        this.width=width;
+        this.height=height;
+        this.draw=draw;
+        
+        this.area=area;
+        this.perimeter=perimeter;
+       
+        function area(){
+            return width*height;
+        }
+        function perimeter(){
+            return 2*(width+height);
+        }
+        function draw(){
+            let canvas =document.getElementById('myCanvas');
+            let ctx = canvas.getContext('2d');
+            ctx.fillStyle = "green";
+            ctx.fillRect(0,0,this.width,this.height);
+        }
+
+    }
+    let shape = new Rectangle(600,100);
+    let area = shape.area();
+    let perimeter = shape.perimeter();
+    alert('area is: '+ area + ' perimeter is: '+ perimeter)
+    shape.draw();
+    </script>
+</body>
+</html>
