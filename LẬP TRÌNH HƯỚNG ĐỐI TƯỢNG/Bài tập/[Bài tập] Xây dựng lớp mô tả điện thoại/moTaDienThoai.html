@@ -8,9 +8,32 @@
 </head>
 <body>
     <script>
-    let Mobile = function(){
-        
+    class Mobile {
+        constructor(energy,remember,effect){
+            this.energy=energy;
+            this.remember=remember;
+            this.effect=effect;
+        }
+        decreaseEnergy(){
+            if(this.energy>0);
+            this.energy--;
+        }
+        meswating(){
+            let mes = prompt('import your messger is drafting: ')
+            document.write(mes);
+        }
+        inbox(){
+            let inbox = ''
+        }
+        sent(){
+            let sent = prompt('import your messger: ');
+            document.write('messger sent save : ' + sent);
+        }
+
     }
+    let energy = new Mobile(100,100,5)
+    let disenergy=energy.decreaseEnergy();
+    alert(disenergy)
     
     </script>
 </body>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1360" height="768" style="border:1px soild black;"></canvas>
+    <script>
+
+        function Circle(x,y,radius){
+            this.x=x;
+            this.y=y;
+            this.radius=radius;
+        }
+        function creatCircle1(){
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            let circle = new Circle(500,500,80);
+            ctx.beginPath();
+            ctx.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+            ctx.fill();
+        }
+
+        function Circle(x,y,radius){
+            this.x=x;
+            this.y=y;
+            this.radius=radius;
+        }
+        function creatCircle2(){
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            let radius = Math.floor(Math.random()*80);
+            let circle = new Circle(500,500,radius);
+            ctx.beginPath();
+            ctx.arc(circle.x,circle.y,circle.radius,0,2*Math.PI);
+            ctx.fill();
+        }
+        
+
+        function Circle(x,y,radius){
+            this.x=x;
+            this.y=y;
+            this.radius=radius;
+        }
+        function getRandomHex(){
+            return Math.floor(Math.random()*255);
+        }
+        function getRandomColor(){
+            let red = getRandomHex();
+            let green = getRandomHex();
+            let blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green +")";
+        }
+        function creatCircle3(){
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            let radius = Math.floor(Math.random()*90);
+            let circle = new Circle(500,500,radius);
+            let color = getRandomColor();
+            ctx.beginPath();
+            ctx.arc(circle.x,circle.y,circle.radius,0,2*Math.PI)
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+       
+
+        function Circle(x, y, radius) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+        }
+        function getRandomHex() {
+            return Math.floor(Math.random() * 255);
+        }
+        function getRandomColor() {
+            let red = getRandomHex();
+            let green = getRandomHex();
+            let blue = getRandomHex();
+            return "rgb(" + red + "," + green + "," + blue + ")";
+        }
+        
+        function creatCircle4() {
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            let grd = ctx.createLinearGradient
+            let radius = Math.floor(Math.random() * 90);
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            let circle = new Circle(x, y, radius);
+            let color = getRandomColor();
+            ctx.beginPath();
+            ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI)
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+        function createMultipleCircle(){
+            for(i=0;i<30;i++){
+                creatCircle4();   
+            }
+        }
+        createMultipleCircle();
+
+    </script>
+</body>
+
+</html>

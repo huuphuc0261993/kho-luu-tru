@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <h3>Add new Product</h3>
+   <input type="text" id="addpro">
+   <input type="button" value="Add" onclick="myAdd()" style="background-color:rgb(36, 170, 36);color: white ">
+   <h3>Display All Product</h3>
+   <table>
+       <tr>
+           <th>Product Name</th>
+           <th></th>
+           <th></th>
+           <th id="soLuong" style="color: red"></th>
+       </tr>
+   </table>
+   <p id="table"></p>
+   <script>
+       let proName = ["Sony Xperia", "SamsungGalaxy", "Nokia 6", "Xiaomi Redmi Note4", "Apple iPhone 6S", "Xiaomi Mi 5s Plus", "Apple iPhone 8 Plus", "Fujitsu F-04E", "Oppp A71"]
+       function display() {
+           let txt = "<table>";
+           for (let i = 0; i < proName.length; i++) {
+               txt += "<tr>";
+               txt += "<td>" + proName[i] + "</td>";
+               txt += "<td>" + "<button  onclick='myEdit(" + i + ")'>Edit</button>" + "</td>";
+               txt += "<td>" + "<button  onclick='myDelete(" + i + ")'>Delete</button>" + "</td>";
+               txt += "</tr>";
+           }
+           txt += "</table>"
+           document.getElementById("table").innerHTML = txt;
+           document.getElementById("soLuong").innerHTML = proName.length + "products";
+       }
+       function myDelete(c) {
+           proName.splice(c, 1);
+           display();
+       }
+       function myEdit(c) {
+           b = prompt("Ban muon doi ten san pham la");
+           proName[c] = b;
+           display();
+       }
+       function myAdd() {
+           x = document.getElementById("addpro").value;
+           proName.push(x);
+           display();
+       }
+       display();
+   </script>
+</body>
+</html>
+Collapse

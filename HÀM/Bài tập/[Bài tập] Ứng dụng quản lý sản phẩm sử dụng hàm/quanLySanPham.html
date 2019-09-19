@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h3>Add new product</h3>
-    
+
     <table>
         <tr>
             <td><input type="text" placeholder="New product" id='goods'></td>
             <td> <input type="button" onclick="sumit()" value="add" /></td>
         </tr>
     </table>
-   
+
     <h3>Display All Product</h3>
-    <h4>Product name</h4>
     <table>
         <tr>
-            <td id="nameProduct"></td>
-            <td id='edit'></td>
-            <td id='delete'></td>
+            <th>Product Name</th>
+            <th></th>
+            <th id='amount' style="color: red ; text-align:right " ></th>
         </tr>
-
+    </table>
+    <table id='dem'>
     </table>
     <script>
-        let enter = '<br/>';
-        let data="";
-        let product= ['Sony Xperia','Samsung galaxy', 'Nokia6', 'Xiaomi remi Note 4','Apple iphone 6s'];
-    //ham hien thi san pham
-    this.fetchAll = function() {
-        var data = '';
-        if (this.products.length > 0) {
-            for (i = 0; i < this.products.length; i++) {
-                data += '<tr>';
-                data += '<td>' + this.products[i] + '</td>';
-                data += '<td><button onclick="app.edit(' + i + ')">Edit</button></td>';
-                data += '<td><button onclick="app.delete(' + i + ')">Delete</button></td>';
-                data += '</tr>';
+        let proName = ["Sony Xperia", "SamsungGalaxy", "Nokia 6", "Xiaomi Redmi Note4",
+            "Apple iPhone 6S", "Xiaomi Mi 5s Plus", "Apple iPhone 8 Plus", "Fujitsu F-04E", "Oppp A71"];
+        function display() {
+            let txt = '';
+            for (i = 0; i < proName.length; i++) {
+                txt += '<tr>';
+                txt += '<td>' + proName[i] + '</td>';
+                txt += '<td>' + "<button onclick='myEdit(" + i + ")'>edit</button>" + '</td>';
+                txt += '<td>' + "<button onclick='delete1(" + i + ")'>delete</button>" + '</td>';
+                txt += '</tr>';
             }
+            document.getElementById('dem').innerHTML = txt;
+            document.getElementById("amount").innerHTML = proName.length + "products";
         }
-        this.count(this.products.length);
-        return this.el.innerHTML = data;
-    };
-    //them 1 san pham vao danh sach
-   
+        display();
+
+        function delete1(i) {
+            proName.splice(i, 1);
+            display();
+        }
+        function myEdit(i) {
+            edit1 = prompt('you want change product?');
+            proName[i] = edit1;
+            display();
+        }
+        function sumit() {
+            myadd = document.getElementById("goods").value;
+            proName.push(myadd);
+            display();
+        }
+
+
     </script>
 </body>
+
 </html>
