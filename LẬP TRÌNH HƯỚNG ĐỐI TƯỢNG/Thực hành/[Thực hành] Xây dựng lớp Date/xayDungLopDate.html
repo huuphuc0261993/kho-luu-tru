@@ -22,6 +22,7 @@
             this.setDay = setDay;
             this.setMonth = setMonth;
             this.setYear = setYear;
+            this.toString = toString;
             //xây dựng phương thức
             function getDay() {
                 return this.day;
@@ -41,6 +42,16 @@
             function setYear(year) {
                 this.year = year;
             };
+
+            function toString(){
+                if(this.day < 10){
+                this.day="0"+this.day;
+                } 
+                if(this.month<10){
+                    this.month="0"+this.month;
+                }
+                return this.day+"/"+this.month+"/"+this.year;
+            }
         }
         let date = new MyDate(2, 2, 2007);
         let day = date.getDay();
@@ -49,12 +60,12 @@
         alert(day + '/' + month + '/' + year);
      
         // set lại giá trị        
-        date.setDay(10);
-        date.setMonth(10);
+        date.setDay(2);
+        date.setMonth(9);
         date.setYear(2019);
-        document.write(date.getDay() + '/' + date.getMonth() + '/' + date.getYear());
+        document.write(date.getDay() + '/' + date.getMonth() + '/' + date.getYear() +"</br>") ;
         
-
+        document.write(date.toString());
     </script>
 </body>
 
