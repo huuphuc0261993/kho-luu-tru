@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="300" style="border:1px solid #000000;">
+    <script>   
+        let ctx = document.getElementById('myCanvas').getContext('2d');    
+        let x=30,y=30;  
+        let dx=3,dy=2;
+        let radius = 10;
+        let paddle = {
+            width: 70 ,
+            height:10 ,
+            speed:10,
+            x:0,
+            y: myCanvas.height-10,
+            isMovingLeft:false,
+            isMovingRight:false,
+        }
+        let isGameOver =  false;
+//xử lý sự kiện
+        document.addEventListener('keyup',function(event){
+        if(event.keyCode == 37){
+            paddle.isMovingLeft=false;
+        } else if(event.keyCode == 39){
+            paddle.isMovingRight=false;
+        }
+    });
+
+        document.addEventListener('keydown',function(event){
+        if(event.keyCode == 37){
+            paddle.isMovingLeft=true;
+        } else if(event.keyCode == 39){
+            paddle.isMovingRight=true;
+        }
+    });
+
+
+        document.addEventListener('keydown',function(event){
+        if(event.keyCode == 37){
+            paddle.x-=paddle.speed;
+        } else if(event.keyCode == 39){
+            paddle.x+=paddle.speed;
+        }
+    });
+//coler random
+        function getRandomHex(){
+        return Math.floor(Math.random()*255);
+        }
+
+        function getRandomColer(){
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return "rgb("+red+','+green+','+blue+")"
+        }
+        
+//vẽ bóng        
+        function drawBall(){
+        let color=getRandomColer();
+        ctx.beginPath();
+        ctx.arc(x,y,10,0,2*Math.PI);
+        ctx.fillStyle= "red";
+        ctx.fill();
+        ctx.closePath();
+        }
+        
+//dội bóng
+        function collision(){
+            if(x<radius||x>myCanvas.width-radius){
+                dx=-dx
+            }
+            if(y<radius){
+                dy=-dy
+            }
+        }
+
+        function updatePosition(){
+            x+=dx;
+            y+=dy;
+        }
+//vẽ thanh ngang
+        function drawPaddle(){
+            ctx.beginPath();
+            ctx.rect(paddle.x,paddle.y,paddle.width,paddle.height);
+            ctx.fill();
+            ctx.closePath();
+        }
+        
+
+        function draw(){
+        if(!isGameOver){    
+            ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
+            drawBall();
+            drawPaddle();
+
+            if(paddle.isMovingLeft){
+                paddle.x-=paddle.speed
+            } else if(paddle.isMovingRight){
+                paddle.x+=paddle.speed    
+            }
+
+            if(paddle.x<0){
+                paddle.x=0;
+            } else if(paddle.x>myCanvas.width-paddle.width){
+                paddle.x = myCanvas.width-paddle.width;
+            }
+
+            collision();
+            updatePosition();
+            
+            if(y>myCanvas.height-radius){
+                isGameOver = true;
+            }
+            
+            requestAnimationFrame(draw);
+        }else{
+            alert('GAME OVER')
+        }
+    }
+        draw();
+    </script>
+</body>
+
+</html>
+</body>
+</html>

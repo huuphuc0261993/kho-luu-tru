@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="400" style="border: 1px solid black"></canvas>
+    <img src="picture/car.png" id="myCar" width="70px" height="50px">
+    <script>
+        function drawCar() {
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            let img = document.getElementById('myCar');
+            ctx.drawImage(img, 50, 150);
+        }
+        drawCar();
+    </script>
+
+</body>
+
+</html>

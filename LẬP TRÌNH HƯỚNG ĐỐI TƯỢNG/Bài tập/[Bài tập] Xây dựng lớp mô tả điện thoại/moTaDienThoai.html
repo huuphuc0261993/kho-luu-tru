@@ -1,40 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    class Mobile {
-        constructor(energy,remember,effect){
-            this.energy=energy;
-            this.remember=remember;
-            this.effect=effect;
+        class mobilephone {
+            constructor(type) {
+                this.type = type;
+                this.battery = 0;
+                this.status = false;
+                this.tempMail = [];
+                this.comingMail = [];
+                this.sendedMail = [];
+                this.tempMail=""
+            }
+            checkStatus() {
+                return this.status;
+            }
+            switchStatus() {
+                if (this.status) {
+                    this.status = false;
+                } else this.status = true;
+                return;
+            }
+            charge() {
+                return this.battery = 100;
+            }
+            writeMail() {
+                this.tempMail = prompt('message ?');
+                var conf = confirm('send ?');
+                if(conf){}
+                else{this.saveMail()};
+                return this.tempMail;
+            }
+            saveMail(x) {
+                this.tempMail.push(x)
+            }
+            sendMail(toPhone) {
+                toPhone.comingMail.push(this.tempMail);
+                this.sendedMail.push(this.tempMail);
+            }
+            checkMailc() {
+                this.working();
+                console.log(this.comingMail)
+            }
+            checkMails() {
+                this.working();
+                console.log(this.sendedMail)
+            }
+            batteryLowering() {
+                this.battery--
+            }
+            mainPowerCheck() {
+                if (this.checkStatus()) {} else {
+                    return console.log('turn on phone first')
+                }
+            }
+            working() {
+                this.mainPowerCheck();
+                this.batteryLowering();
+            }
         }
-        decreaseEnergy(){
-            if(this.energy>0);
-            this.energy--;
-        }
-        meswating(){
-            let mes = prompt('import your messger is drafting: ')
-            document.write(mes);
-        }
-        inbox(){
-            let inbox = ''
-        }
-        sent(){
-            let sent = prompt('import your messger: ');
-            document.write('messger sent save : ' + sent);
-        }
-
-    }
-    let energy = new Mobile(100,100,5)
-    let disenergy=energy.decreaseEnergy();
-    alert(disenergy)
-    
+        var nokia = new mobilephone(nokia);
+        var iphone = new mobilephone(iphone);
+        nokia.switchStatus();
+        iphone.switchStatus();
+        nokia.writeMail()
+        nokia.sendMail(iphone)
+        iphone.checkMailc()
     </script>
+    <button onclick='nokia.writeMail();nokia.sendMail(iphone)' >writeMail(nokia)</button>
+    <button onclick="iphone.checkMailc()">checkmail(iphone)</button>
 </body>
+
 </html>

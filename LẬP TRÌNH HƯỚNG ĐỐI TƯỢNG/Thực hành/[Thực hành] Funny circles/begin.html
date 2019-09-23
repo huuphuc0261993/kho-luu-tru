@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="500" style="border: 1px solid black"></canvas>
+    <script>
+    let ctx = document.getElementById('myCanvas').getContext('2d');
+    let ball = {
+        x: 10,
+        y: 10,
+        radius: 8,
+        color: "red",
+    }
+    let paddle = {
+        x:0,
+        y:myCanvas.height-10,
+        width: 90,
+        height:10,
+        color: "red",
+        speed: 10,
+        isMovingLeft: false,
+        isMoingRight: false,
+    }
+    let brick = {
+        x:25,y:20,width:90,height:10,color:"red",
+    }
+    let dx=5, dy=5;
+    let isGameOver = false;
+
+    document.addEventListener('keyup',function(event){
+        if(event.keyCode==37){
+            paddle.isMovingLeft=false;
+        } else if(event.keyCode==39)
+            paddle.isMoingRight=false;
+    
+    },)
+
+    document.addEventListener('keydown',function(event){
+        if(event.keyCode==37){
+            paddle.isMovingLeft=true;
+        } else if(event.keyCode==39)
+            paddle.isMoingRight=true;
+    },)
+
+    
+    function drawBall(){
+    ctx.beginPath();
+    ctx.arc(ball.x,ball.y,ball.radius,0,2*Math.PI);
+    ctx.fillStyle=ball.color;
+    ctx.fill();
+    ctx.closePath();
+    }
+    
+    function updatePoistionBall(){
+        ball.x+=dx;
+        ball.y+=dy;
+    }
+    
+    function collisionBall(){
+        if(ball.y<ball.radius){
+            dy=-dy;
+        }
+        if(ball.x<ball.radius||ball.x>myCanvas.width-ball.radius){
+            dx=-dx;
+        }
+    }
+    
+    function paddles(){
+        ctx.beginPath();
+        ctx.rect(paddle.x,paddle.y,paddle.width,paddle.height);
+        ctx.fillStyle=paddle.color;
+        ctx.fill();
+        ctx.closePath();
+    }
+// vẽ offset =2*25, brick = 5*90 , margin = 4*25 total=600
+    function drawBrick(){
+        for(i=0;i<3;i++){
+            for(j=0;j<5;j++){
+                ctx.beginPath();
+                ctx.rect(brick.x+j*(brick.width+brick.x),brick.y+i*(brick.height+brick.y),brick.width,brick.height)
+                ctx.fillStyle = brick.colorl;
+                ctx.fill();
+                ctx.closePath();  
+            }
+        }
+         
+        }
+
+
+    function paddlePostion(){
+        if(paddle.x<0){
+            paddle.x=0;
+        } else if(paddle.x>myCanvas.width-paddle.width){
+            paddle.x=myCanvas.width-paddle.width;
+        }
+    }
+
+    function updatePoistionPaddle(){
+        if(paddle.isMovingLeft){
+            paddle.x-=paddle.speed;
+        } else if(paddle.isMoingRight){
+            paddle.x+=paddle.speed;
+        }
+    }
+
+    function collisionPaddle(){
+        if(ball.x>=paddle.x && ball.y+ball.radius>=paddle.y && ball.x<=paddle.x+paddle.width){
+            dy=-dy;
+        }
+    }
+    
+    function draw(){
+        if(!isGameOver){
+        ctx.clearRect(0,0,myCanvas.width,myCanvas.height)
+        drawBall();      
+        drawBrick();
+
+        updatePoistionPaddle();
+        paddlePostion();
+        paddles();
+        collisionBall();
+        collisionPaddle();
+        updatePoistionBall();
+
+
+        if(ball.y>myCanvas.height-ball.radius){
+            isGameOver = true;
+        }
+        requestAnimationFrame(draw);
+    } else{
+        alert("GAME OVER");
+    }
+    }
+    
+    draw();
+    </script>
+</body>
+</html>
