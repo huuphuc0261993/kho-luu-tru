@@ -1,25 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Phát triển game lái xe</title>
 </head>
+<body onload="doReady(); car.drawCar(car.elementUp)">
+    <canvas id="myCanvas" width="1300px" height="590px" style="border: 3px solid #d3d3d3; margin: auto; position: absolute"></canvas>
 
-<body>
-    <canvas id="myCanvas" width="800" height="400" style="border: 1px solid black"></canvas>
-    <img src="picture/car.png" id="myCar" width="70px" height="50px">
+    <img src="picture/up.png" id="carUp" alt="carUp" style="display:none;" onclick="alert('hello')" >
+    <img src="picture/down.png" id="carDown" alt="carDown" style="display:none;" >
+    <img src="picture/left.png" id="carLeft" alt="carLeft" style="display:none;" >
+    <img src="picture/right.png" id="carRight" alt="carRight" style="display:none;" >
     <script>
-        function drawCar() {
-            let ctx = document.getElementById('myCanvas').getContext('2d');
-            let img = document.getElementById('myCar');
-            ctx.drawImage(img, 50, 150);
+        let canvas = document.getElementById("myCanvas");   
+        let ctx = canvas.getContext("2d");
+        let Car = function (x, y, speed) {
+            this.x = x;
+            this.y = y;
+            this.speed = speed;
+            this.canvas = canvas;
+            this.ctx = ctx;
+            this.elementUp = document.getElementById("carUp");
+            this.elementDown = document.getElementById("carDown");
+            this.elementLeft = document.getElementById("carLeft");
+            this.elementRight = document.getElementById("carRight");
+            this.drawCar = function (element) {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.ctx.beginPath();
+                block1.drawBlock();
+                this.element = element;
+                this.ctx.drawImage(this.element, this.x, this.y, 90,50);
+            };
+            this.moveUp = function () {
+                this.y -= this.speed;
+            };
+            this.moveDown = function () {
+                this.y += this.speed;
+            };
+            this.moveLeft = function () {
+                // if(checkMove(this.x, this.y)) {
+                    this.x -= this.speed;
+                // }else {
+                //     this.x += this.speed/2;
+                // }
+            };
+            this.moveRight = function () {
+                // if(checkMove(this.x, this.y)) {
+                    this.x += this.speed;
+                // }else {
+                //     this.x -= this.speed/2;
+                // }
+            };
+        };
+        let Block = function(x, y, width, height){
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.canvas = canvas;
+            this.ctx = ctx;
+            this.drawBlock = function () {
+                this.ctx.beginPath();
+                this.ctx.rect(this.x, this.y, this.width, this.height);
+                this.ctx.fill();
+                this.ctx.fillStyle = "red";
+            }
+        };
+        let car = new Car(550, 200, 10);
+        let block1 = new Block(100, 100, 100, 500);
+        // Tại sao lại không được:
+        // function createBlock() {
+        //     let block1 = new Block(100, 100, 100, 500);
+        // }
+        // createBlock();
+        function checkCollision(carX) {
+            if(carX < (block1.x + block1.width)){
+                return true;
+            }else {
+                return false;
+            }
         }
-        drawCar();
+        function checkMove(x, y) {
+            if(300<=x && x<=900 && 0<=y){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        function moveSelection (evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    checkCollision();
+                    block1.drawBlock();
+                    if(checkMove(car.x , car.y)){
+                    car.moveLeft();}
+                    car.drawCar(car.elementLeft);
+                    break;
+                case 39:
+                    if(checkMove(car.x , car.y)){
+                    car.moveRight();}
+                    console.log(car.x, car.y);
+                    car.drawCar(car.elementRight);
+                    break;
+                case 38:
+                    car.moveUp();
+                    car.drawCar(car.elementUp);
+                    break;
+                case 40:
+                    car.moveDown();
+                    car.drawCar(car.elementDown);
+                    break;
+                case 17:
+                    car.speed += 10;
+                    break;
+            }
+        }
+        function doReady() {
+            window.addEventListener("keyup", moveSelection);
+        }
     </script>
-
 </body>
-
-</html>
+</html> 

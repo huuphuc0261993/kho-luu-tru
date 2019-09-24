@@ -8,24 +8,73 @@
 </head>
 <body>
     <table>
-        <tr><textarea name="" id="" cols="30" rows="10"></textarea></tr>
+        <tr><textarea name="" id="display" cols="40" rows="10" placeholder="Nokia"></textarea></tr>
         <tr>
             <td><input type="button" value="inbox" id=""></td>
-            <td><input type="button" value="Send"></td>
-            <td><input type="button" value="Draw"></td>
+            <td><input type="button" value="Sent" onclick="sent()"></td>
+            <td><input type="button" value="Send" onclick="send()"></td>
+            <td><input type="button" value="draft" onclick="draft()"></td>
             <td><input type="checkBox"></td>
             <td><input type="button" value="energy"></td>
         </tr>
     </table>
     <table>
-        <tr><textarea name="" id="" cols="30" rows="10"></textarea></tr>
-        <tr>
+        <tr><textarea name="" id="" cols="40" rows="10" placeholder="Iphone"></textarea></tr>
+        <tr>-
             <td><input type="button" value="inbox" id=""></td>
+            <td><input type="button" value="Sent"></td>
             <td><input type="button" value="Send"></td>
-            <td><input type="button" value="Draw"></td>
+            <td><input type="button" value="draft"></td>
             <td><input type="checkBox"></td>
             <td><input type="button" value="energy"></td>
+            
         </tr>
+        <script>
+            let Mobile = function(messger,energy){
+                this.energy = energy;
+                this.messger = "";
+                this.inbox=[];                
+                this.sendMessger=[];
+            function chekcIsON(){
+                return true;
+            }
+
+            function checkIsOF(){
+                return false;
+            }
+
+            function effectOnOFF(){
+                if(chekcIsON){
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function battery(){
+                return energy = 100;
+            }
+
+            function messgers(){
+                if(chekcIsON && effectOnOFF){
+
+                }
+            }
+            
+            function reciveInbox(){
+                return this.inbox[i]=this.messger
+            }
+
+            function sendMessger(){
+                return this.sendMessger[i]
+            }
+
+            function checkInbox(){
+
+            }
+            }
+        
+        </script>
     </table>
 </body>
 </html>
