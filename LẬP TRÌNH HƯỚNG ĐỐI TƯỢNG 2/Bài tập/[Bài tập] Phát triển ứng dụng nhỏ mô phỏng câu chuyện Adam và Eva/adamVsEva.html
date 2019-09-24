@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Apple = function (weight) {
+            this.weight = weight;
+
+            this.decrease = decrease;
+            this.isEmpty = isEmpty;
+            this.getWeight = getWeight;
+            
+
+            function isEmpty() {
+                if (this.weight == 0) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+
+            function decrease() {
+                return this.weight--;
+            }
+
+            function getWeight() {
+                return this.weight;
+
+            }
+
+        }
+
+        let Human = function (name, gender, weight) {
+
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+
+            this.say = say;
+            this.eat = eat;
+            this.getName = getName;
+            this.setName = setName;
+
+            function setName(name){
+                this.setName=name;
+            };
+            function getName(){
+                return this.name;
+            };
+
+            function say() {
+                let say = prompt(this.name+' say: ');
+                return console.log(this.name + " say: " +say)
+            };
+
+            function eat() {
+                if (!apple.isEmpty()) {
+                    this.weight += 1;
+
+                    return console.log("weight of " + this.name + " is " + this.weight + "." +
+                        " Weight of apple is: " + apple.decrease())
+                }
+            };
+
+        }
+
+        let apple = new Apple(10);
+        let adam = new Human("adam", "male", 70)
+        let eva = new Human("eva", "female", 65)
+        adam.say();
+        eva.say();
+        adam.say();
+        adam.eat();
+        eva.eat();
+        console.log(apple.isEmpty());
+        adam.setName('phuc');
+        adam.say();
+       
+
+    </script>
+</body>
+
+</html>
