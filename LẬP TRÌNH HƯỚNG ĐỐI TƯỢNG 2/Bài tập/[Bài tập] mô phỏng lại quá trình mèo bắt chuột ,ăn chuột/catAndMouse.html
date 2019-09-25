@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Rat{
+        constructor(_name, _weight, _speed, _status){
+            this.name=_name;
+            this.weight=_weight;
+            this.speed = _speed;
+            this.status = status;
+        }
+
+        conectToCat(val){
+            this.cat=val;
+        }
+        sounds(){
+            console.log('chit chit');
+        }
+
+    }
+
+
+    class Cat{
+        constructor(_name, _weight, _speed){
+            this.name=_name;
+            this.weight=_weight;
+            this.speed = _speed;
+        }
+
+        sounds(){
+            console.log('meo meo');
+        }
+
+        conectToRat(val){
+            this.mouse=val;
+        }
+
+
+
+        eatRat(){
+            if(this.speed > this.mouse.speed ){
+            this.weight+=this.mouse.weight
+            document.write('bắt được chuột ' + this.mouse.name +'</br>');
+            document.write( "cân nặng của mèo là: "+ this.weight+'</br>');
+            this.mouse.status=false;
+            } else{
+            document.write('không bắt được chuột '+this.mouse.name+'</br>')
+            this.mouse.status=true;
+            }
+        }
+            
+    }
+   
+    let rat1 = new Rat('micky',0.5,4,true);
+    let rat = new Rat('jerry',0.5,4,true);
+    let cat = new Cat('Tom',3,5);
+    cat.conectToRat(rat);
+    cat.eatRat();
+    cat.conectToRat(rat1);
+    cat.eatRat();
+    document.write(rat.name+" "+rat.status+'</br>');
+    document.write( rat1.name+" "+rat1.status+'</br>');
+    
+    </script>
+</body>
+</html>
