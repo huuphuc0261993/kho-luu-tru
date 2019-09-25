@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button onclick="turnOn()">ON</button>
+    <button onclick="turnOff()">OFF</button>
+    <p id = "kxd"></p> -->
+    <script>
+        class Remote {
+            constructor(_code) {
+                this.code = _code
+            }
+            conectTV(value) {
+                this.conect = value;
+            }
+            setChanel(_chanel) {
+                this.conect.chanelOnAir = _chanel
+            }
+            controlSound() {
+                this.conect.currentSound += 2;
+                console.log("âm lượng là: " + this.conect.currentSound)
+            }
+            setStatus(_switchButton) {
+                this.switchButton=_switchButton;
+                if(this.switchButton==true){
+                this.conect.status=true;
+                } else{
+                this.conect.status=false;
+                }
+            }
+        }
+
+        class TV {
+            constructor(_chanelOnAir, _currentSound, _status) {
+                this.chanelOnAir = _chanelOnAir;
+                this.currentSound = _currentSound;
+                this.status = _status;
+            }
+            setChanel(_chanel) {
+                this.chanelOnAir = _chanel;
+            }
+            display() {
+                if (this.status == true) {
+                    console.log('kênh đang bật là: ' + this.chanelOnAir);
+                } else {
+                    console.log('TV chưa bật')
+                }
+            }
+            controlSound() {
+                if (this.status == true) {
+                    this.currentSound += 2
+                    console.log("âm lượng là: " + this.currentSound);
+                }
+                else {
+                    console.log('TV chưa bật')
+                }
+            }
+        }
+        let remote = new Remote(123);
+        let television =  new TV('kênh 2', 15,true);
+        television.display();
+        television.setChanel('kênh 7');
+        television.display();
+        remote.conectTV(television);
+        remote.setChanel('kênh 3');
+        television.display();
+        television.controlSound();
+        remote.controlSound();
+        remote.setStatus(false);
+        television.display();
+
+
+    //     function turnOn(){
+    //     remote.setStatus(true);
+    //     television.display();  
+    //     }
+    //    function turnOff(){
+    //     remote.setStatus(false);
+    //     television.display();
+    //    }
+
+    </script>
+</body>
+
+</html>
