@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ElectricLamp</title>
+
+</head>
+<body>
+<button id="on" onclick="on()">on</button>
+<button id="off" onclick="off()">off</button>
+</body>
+<script>
+    class Lamp{
+        constructor(status){
+            this.status=status;
+        }
+        turnOn(){
+            this.status=true;
+        }
+        turnOff(){
+            this.status=false;
+        }
+        checkStatus(){
+            if(this.status){
+                alert('lamp lighting')
+            } else{
+                alert('lamp does not light')
+            }
+        }
+    }
+
+    class SwitchButton{
+        constructor(lamp){
+            this.lamp= lamp;
+        }
+    }
+    var lamp =  new Lamp(false)
+    var switchButton = new SwitchButton(lamp)
+    
+    function on(){
+    switchButton.lamp.turnOn();
+    switchButton.lamp.checkStatus()
+    }
+    function off(){
+    switchButton.lamp.turnOff();
+    switchButton.lamp.checkStatus()
+    }
+
+    
+
+
+</script>
+</html>

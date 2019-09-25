@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class SwitchButoon {
+            constructor() {
+                this.statusButton = false;
+                this.lamp=null;
+
+            }
+            conectToLamp(lamp){
+                this.lamp=lamp;
+            }
+            switchOn(){
+                if(this.lamp!=null){
+                    this.lamp.turnOn();
+                    this.statusButton=true;
+                } else{
+                    alert( 'chưa kết nối: ')
+                }
+                
+            }
+            switchOff(){
+                if(this.lamp!=null){
+                    this.lamp.turnOff();
+                    this.statusButton=false;
+                } else{
+                    alert( 'chưa kết nối: ')
+                }
+                
+            }
+        }
+        class Lamp {
+            constructor() {
+                this.statusLamp = false;
+            }
+            turnOn() {
+                this.statusLamp = true
+
+            }
+            turnOff() {
+                this.statusLamp = false
+            }
+        }
+
+        let lamp=new Lamp()
+    </script>
+</body>
+
+</html>

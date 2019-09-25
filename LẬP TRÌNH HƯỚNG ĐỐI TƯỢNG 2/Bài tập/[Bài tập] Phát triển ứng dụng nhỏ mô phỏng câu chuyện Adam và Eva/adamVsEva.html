@@ -45,11 +45,10 @@
 
             this.say = say;
             this.eat = eat;
-            this.getName = getName;
-            this.setName = setName;
+
 
             function setName(name){
-                this.setName=name;
+                this.name=name;
             };
             function getName(){
                 return this.name;
@@ -79,8 +78,11 @@
         adam.say();
         adam.eat();
         eva.eat();
+        eva.eat();
+        
         console.log(apple.isEmpty());
         adam.setName('phuc');
+        adam.getName();
         adam.say();
        
 

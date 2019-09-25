@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="700" height="500" style="border: 1px solid black" id="myCanvas"></canvas>
+    <img src="picture/up.png" id="up"  style="display: none" id="up">
+    <img src="picture/down.png" alt="" style="display: none" id="down">
+    <img src="picture/left.png" alt="" style="display: none" id="left">
+    <img src="picture/right.png" alt="" style="display: none" id="right">
+    <script>
+       class Rect {
+            constructor(x, y, width, height) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+            }
+            drawRect() {
+                ctx.beginPath();
+                ctx.fillStyle = "blue";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        class Picture{
+            constructor(image,x,y,width,height){
+                this.image = image;
+                this.y = y;
+                this.x = x;
+                this.width = width;
+                this.height = height;
+            }
+            
+            drawPicture(){
+                let img = new Image();
+                img.onload=function(){
+                    ctx.drawImage(img,this.x,this.y,this.width,this.height);
+                }
+                img.src=this.image;
+            }
+        }
+
+        var cv = document.getElementById('myCanvas');
+        var ctx = cv.getContext('2d');
+       
+        var rect1 = new Rect(0,0,50,50);
+        var rect2 = new Rect(50,50,50,50);
+        rect1.drawRect();
+        rect2.drawRect();
+
+        var picture1 = new Picture("up.png",0,0,50,50);
+        picture1.drawPicture()
+
+        
+
+
+
+
+    </script>
+</body>
+
+</html>

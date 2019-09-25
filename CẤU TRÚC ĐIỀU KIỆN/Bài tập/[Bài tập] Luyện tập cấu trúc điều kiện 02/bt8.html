@@ -8,18 +8,38 @@
 </head>
 <body>
     <script>
-        do {
-            let tuoi = prompt('Nhập tuổi của bạn vào đây:');
-            if (!isNaN(tuoi)) {
-                if (tuoi > 0 & tuoi < 120 & tuoi == parseInt(tuoi)) {
-                    alert('Tuổi của bạn là: ' + tuoi);
-                } else {
-                    alert('Vui lòng nhập lại tuổi của bạn');
-                }
-                break;
-            } else
-                alert('please try again!')
-        } while (isNaN)    
+        // do {
+        //     let tuoi = prompt('Nhập tuổi của bạn vào đây:');
+        //     if (!isNaN(tuoi)) {
+        //         if (tuoi > 0 & tuoi < 120 & tuoi == parseInt(tuoi)) {
+        //             alert('Tuổi của bạn là: ' + tuoi);
+        //         } else {
+        //             alert('Vui lòng nhập lại tuổi của bạn');
+        //         }
+        //         break;
+        //     } else
+        //         alert('please try again!')
+        // } while (isNaN)
+        // let a = 1;
+    
+            do{
+               
+            n=prompt('nhập n: ');
+            y=parseFloat(n)
+            }while(!Number.isInteger(y))
+
+            // alert(a);
+
+    //     function importLength() {
+    //     arrlength = +prompt("Nhập độ dài của mãng > 0: ");
+    //     if (arrlength > 0 && Number.isInteger(arrlength)) {
+    //       return arrlength;
+    //     } else {
+    //       alert("nhập lại");
+    //       return importLength();
+    //     }
+    //   }
+    //   importLength();
     </script>
 </body>
 </html>
