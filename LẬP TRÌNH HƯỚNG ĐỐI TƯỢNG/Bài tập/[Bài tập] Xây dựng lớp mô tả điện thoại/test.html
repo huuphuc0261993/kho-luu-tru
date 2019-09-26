@@ -1,80 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <table>
-        <tr><textarea name="" id="display" cols="40" rows="10" placeholder="Nokia"></textarea></tr>
-        <tr>
-            <td><input type="button" value="inbox" id=""></td>
-            <td><input type="button" value="Sent" onclick="sent()"></td>
-            <td><input type="button" value="Send" onclick="send()"></td>
-            <td><input type="button" value="draft" onclick="draft()"></td>
-            <td><input type="checkBox"></td>
-            <td><input type="button" value="energy"></td>
-        </tr>
-    </table>
-    <table>
-        <tr><textarea name="" id="" cols="40" rows="10" placeholder="Iphone"></textarea></tr>
-        <tr>-
-            <td><input type="button" value="inbox" id=""></td>
-            <td><input type="button" value="Sent"></td>
-            <td><input type="button" value="Send"></td>
-            <td><input type="button" value="draft"></td>
-            <td><input type="checkBox"></td>
-            <td><input type="button" value="energy"></td>
-            
-        </tr>
-        <script>
-            let Mobile = function(messger,energy){
-                this.energy = energy;
-                this.messger = "";
-                this.inbox=[];                
-                this.sendMessger=[];
-            function chekcIsON(){
-                return true;
-            }
+    <h3>Nokia</h3>
+    <form>
+        <input type="button" value="Battery Status" id="nokiaBatteryDecrease" onclick="nokiaBattery()">
+        <input type="button" value="Battery Charge" id="nokiaBatteryCharge" onclick="nokiaCharge()">
+        <input type="text" id="nokiaTexting" onchange="nokiaTxt(this)">
+        <input type="button" value="Send" id="nokiaSendMessage" onclick="nokiaSend()">
+        <input type="button" value="Inbox" id="nokiaInbox" onclick="nokiaIb()">
+        <input type="button" value="Sent Message" id="nokiaSentMessage" onclick="nokiaSent()">
+        <input type="button" value="Check Status Mobile" id="nokiaCheckStatus" onclick="nokiaStatus()">
+        <input type="button" value="Turn On" id="nokiaTurnOn" onclick="nokiaOn(this)">
+        <input type="button" value="Turn Off" id="nokiaTurnOff" onclick="nokiaOff(this)">
+    </form>
 
-            function checkIsOF(){
-                return false;
-            }
+    <p id="nokiaBatteryDecreaseValue"></p>
+    <p id="nokiaTextInbox"></p>
+    <p id="nokiaTextSent"></p>
+    <p id="nokiaStatus"></p>
 
-            function effectOnOFF(){
-                if(chekcIsON){
-                    return false;
-                } else {
-                    return true;
-                }
-            }
+    <hr>
 
-            function battery(){
-                return energy = 100;
-            }
+    <h3>Iphone</h3>
+    <form>
+        <input type="button" value="Battery Status" id="iphoneBatteryDecrease" onclick="iphoneBattery()">
+        <input type="button" value="BatteryCharge" id="iphoneBatteryCharge" onclick="iphoneCharge()">
+        <input type="text" id="iphoneTexting" onchange="iphoneTxt(this)">
+        <input type="button" value="Send" id="iphoneSendMessage" onclick="iphoneSend()">
+        <input type="button" value="Inbox" id="iphoneInbox" onclick="iphoneIb()">
+        <input type="button" value="Sent Message" id="iphoneSentMessage" onclick="iphoneSent()">
+        <input type="button" value="Check Status Mobile" id="iphoneCheckStatus" onclick="iphoneStatus()">
+        <input type="button" value="Turn On" id="iphoneTurnOn" onclick="iphoneOn(this)">
+        <input type="button" value="Turn Off" id="iphoneTurnOff" onclick="iphoneOff(this)">
+    </form>
 
-            function messgers(){
-                if(chekcIsON && effectOnOFF){
+    <p id="iphoneBatteryDecreaseValue"></p>
+    <p id="iphoneTextInbox"></p>
+    <p id="iphoneTextSent"></p>
+    <p id="iphoneStatus"></p>
 
-                }
+    <script>
+        function Mobile() {
+            this.batteryBar = Math.floor(Math.random() * 100);
+            this.memoryTexting = [];
+            this.txtSent = [];
+            this.txtInbox = [];
+            this.batteryDecrease = function () {
+                return this.batteryBar -= 1;
             }
-            
-            function reciveInbox(){
-                return this.inbox[i]=this.messger
+            this.batteryCharge = function () {
+                return this.batteryBar = 100;
             }
-
-            function sendMessger(){
-                return this.sendMessger[i]
+            this.texting = function (txt) {
+                this.batteryBar -= 1;
+                this.memoryTexting.push(txt.value);
             }
-
-            function checkInbox(){
-
+            this.sendMessage = function (phone) {
+                this.batteryBar -= 1;
+                phone.txtInbox.push(this.memoryTexting[this.memoryTexting.length - 1]);
+                this.txtSent.push(this.memoryTexting[this.memoryTexting.length - 1]);
+                alert("Đã gửi tin");
             }
+            this.inbox = function () {
+                this.batteryBar -= 1;
+                return this.txtInbox;
             }
-        
-        </script>
-    </table>
+            this.sentMessage = function () {
+                this.batteryBar -= 1;
+                return this.txtSent;
+            }
+        }
+        let nokia = new Mobile(),
+            iphone = new Mobile(),
+            nk = true,
+            ip = true;
+        function nokiaBattery() {
+            document.getElementById("nokiaBatteryDecreaseValue").innerHTML = "Tình trạng pin: " + nokia.batteryDecrease();
+        };
+        function nokiaCharge() {
+            document.getElementById("nokiaBatteryDecreaseValue").innerHTML = "Tình trạng pin: " + nokia.batteryCharge();
+        };
+        function nokiaTxt(x) {
+            nokia.texting(x);
+        };
+        function nokiaSend() {
+            nokia.sendMessage(iphone);
+        };
+        function nokiaIb() {
+            document.getElementById("nokiaTextInbox").innerHTML = "Tin nhắn trong Inbox: " + nokia.inbox();
+        };
+        function nokiaSent() {
+            document.getElementById("nokiaTextSent").innerHTML = "Tin nhắn đã gửi: " + nokia.sentMessage();
+        };
+        function nokiaStatus() {
+            if (nk == false) {
+                alert("Máy đã tắt");
+            } else {
+                alert("Máy đang bật");
+            }
+        };
+        function nokiaOn(x) {
+            for (i = 0; i < x.form.length - 3; i++) {
+                x.form.elements[i].disabled = false;
+            }
+            return nk = true;
+        };
+        function nokiaOff(x) {
+            for (i = 0; i < x.form.length - 3; i++) {
+                x.form.elements[i].disabled = true;
+            }
+            return nk = false;
+        };
+        function iphoneBattery() {
+            document.getElementById("iphoneBatteryDecreaseValue").innerHTML = "Tình trạng pin: " + iphone.batteryDecrease();
+        };
+        function iphoneCharge() {
+            document.getElementById("iphoneBatteryDecreaseValue").innerHTML = "Tình trạng pin: " + iphone.batteryCharge();
+        };
+        function iphoneTxt(x) {
+            iphone.texting(x);
+        };
+        function iphoneSend() {
+            iphone.sendMessage(nokia);
+        };
+        function iphoneIb() {
+            document.getElementById("iphoneTextInbox").innerHTML = "Tin nhắn trong Inbox: " + iphone.inbox();
+        };
+        function iphoneSent() {
+            document.getElementById("iphoneTextSent").innerHTML = "Tin nhắn đã gửi: " + iphone.sentMessage();
+        };
+        function iphoneStatus() {
+            if (ip == false) {
+                alert("Máy đã tắt");
+            } else {
+                alert("Máy đang bật");
+            }
+        };
+        function iphoneOn(x) {
+            for (i = 0; i < x.form.length - 3; i++) {
+                x.form.elements[i].disabled = false;
+            }
+            return ip = true;
+        };
+        function iphoneOff(x) {
+            for (i = 0; i < x.form.length - 3; i++) {
+                x.form.elements[i].disabled = true;
+            }
+            return ip = false;
+        };
+    </script>
 </body>
+
 </html>

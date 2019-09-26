@@ -10,73 +10,54 @@
 
 <body>
     <script>
-        class mobilephone {
-            constructor(type) {
-                this.type = type;
-                this.battery = 0;
-                this.status = false;
-                this.tempMail = [];
-                this.comingMail = [];
-                this.sendedMail = [];
-                this.tempMail=""
+        class Mobile {
+            constructor() {
+                this.txtRemember = [];
+                this.inbox = [];
+                this.sent = [];
+                this.battery = 100;
+                
             }
-            checkStatus() {
-                return this.status;
+            setStatus(_status) {
+                this.status = _status
             }
-            switchStatus() {
-                if (this.status) {
-                    this.status = false;
-                } else this.status = true;
-                return;
-            }
-            charge() {
-                return this.battery = 100;
-            }
-            writeMail() {
-                this.tempMail = prompt('message ?');
-                var conf = confirm('send ?');
-                if(conf){}
-                else{this.saveMail()};
-                return this.tempMail;
-            }
-            saveMail(x) {
-                this.tempMail.push(x)
-            }
-            sendMail(toPhone) {
-                toPhone.comingMail.push(this.tempMail);
-                this.sendedMail.push(this.tempMail);
-            }
-            checkMailc() {
-                this.working();
-                console.log(this.comingMail)
-            }
-            checkMails() {
-                this.working();
-                console.log(this.sendedMail)
-            }
-            batteryLowering() {
-                this.battery--
-            }
-            mainPowerCheck() {
-                if (this.checkStatus()) {} else {
-                    return console.log('turn on phone first')
+            
+            mobileSend() {
+                if (this.status == true && this.battery > 0) {
+                    this.send = prompt(confirm('nhập tin nhắn bạn muốn gửi'));
+                    if (this.send) {  
+                        this.sent.push(this.send);
+                    } else {
+                        this.txtRemember.push(this.send);
+                    }
+                    this.battery--;
                 }
             }
-            working() {
-                this.mainPowerCheck();
-                this.batteryLowering();
+            mobileSent(){
+                this.battery--;
+                console.log(this.sent);
             }
+            
+            charging(){
+                return this.battery=100;
+            }
+
+            inbox(){
+
+            }
+
+
+
         }
-        var nokia = new mobilephone(nokia);
-        var iphone = new mobilephone(iphone);
-        nokia.switchStatus();
-        iphone.switchStatus();
-        nokia.writeMail()
-        nokia.sendMail(iphone)
-        iphone.checkMailc()
+
+        let nokia = new Mobile();
+        nokia.setStatus(true);
+        
+
+
+
     </script>
-    <button onclick='nokia.writeMail();nokia.sendMail(iphone)' >writeMail(nokia)</button>
-    <button onclick="iphone.checkMailc()">checkmail(iphone)</button>
+
 </body>
 
 </html>
