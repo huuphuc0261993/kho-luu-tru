@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function validatePhone(phone){
+        let regx = /^\([0-9]{2}\)-\(0[0-9]{9}\)$/
+        
+        if (regx.test(phone)) {
+                console.log(`Phong Name: ${phone} hợp lệ!`);
+            } else {
+                console.log(`Phong Name: ${phone} không hợp lệ!`);
+            }
+        }
+        
+    let phone1 = "(84)-(0978489648)";
+    let phone2 = "(a8)-(22222222)";
+        validatePhone(phone1);
+        validatePhone(phone2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateAccount(str){
+            let regular = /^[_0-9a-z]{6,}$/
+            if(regular.test(str)){
+                return true;
+            }else{
+                return false;
+            };
+        }
+        let str1 = "123abc_",
+            str2 = "_abc123",
+            str3 = "_____",
+            str4 = "123456",
+            str5 = "abcdefg",
+            str6 = "@",
+            str7 = "12345",
+            str8 = "1234_",
+            str9 = "abcde ";
+        
+        console.log(validateAccount(str1));
+        console.log(validateAccount(str9));
+    
+    </script>
+</body>
+</html>

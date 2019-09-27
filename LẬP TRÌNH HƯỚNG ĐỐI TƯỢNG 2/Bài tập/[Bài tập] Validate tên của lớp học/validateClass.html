@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function validateClass(str) {
+            regx = /^[CAP][0-9]{4}[G,H,I,K,L,M]$/
+            if (regx.test(str)) {
+                console.log(`Class Name: ${str} hợp lệ!`);
+            } else {
+                console.log(`Class Name: ${str} không hợp lệ!`);
+            }
+        }
+        let str1 = "A0318G";
+        let str2 = "P0323A";
+        validateClass(str1);
+        validateClass(str2);
+    
+    </script>
+</body>
+
+</html>
