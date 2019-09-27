@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function date(str) {
+            let regx = "";
+            if (regx.test(str)) {
+                let regx = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/
+
+                if (regx.test(date)) {
+                    console.log(`date Name: ${date} hợp lệ!`);
+                } else {
+                    console.log(`date Name: ${date} không hợp lệ!`);
+                }
+            }
+        }
+
+        let date1 = "27/09/2019";
+        let date2 = "(a8)-(22222222)";
+        validatedate(date1);
+        validatedate(date2);
+    </script>
+</body>
+
+</html>

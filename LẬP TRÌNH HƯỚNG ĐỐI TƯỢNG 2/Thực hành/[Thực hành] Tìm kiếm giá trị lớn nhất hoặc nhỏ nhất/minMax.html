@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// hàm tìm kiếm giá trị nhỏ nhất trong mảng
+        function findMin(arr){
+            let min = arr[0];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i]<min){
+                    min=arr[i];
+                }
+            }
+            return min;
+        }
+// hàm tìm kiếm giá lớn nhất trong mảng
+function finMax(arr){
+    let max =arr[0];
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    return max;
+}
+    </script>
+</body>
+</html>
