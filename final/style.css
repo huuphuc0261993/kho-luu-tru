@@ -1,0 +1,33 @@
+body{
+    background-color: black; color: white;
+    z-index: 100;
+}
+div {
+    background-color: gray;
+}
+.cell{
+    width: 40px;
+    height: 40px;
+}
+.wall{
+    background-image: url(image/wall1.PNG);
+}
+.floor, .gamer {
+    background-image: url(image/wall2.PNG) ;
+    z-index: 50;
+}
+.target{
+    background-color: gold;
+}
+
+.gamer{
+    background: transparent;
+    background-image: url(image/gamer.png) ;
+    z-index: 999;
+    
+}
+.box{
+    background-image: url(image/box.png)
+}
+
+
