@@ -1,0 +1,36 @@
+p{
+    text-align:center;
+    font-family:"iCiel Brandon Text";
+    font-weight:bold;
+    font-size:50px;
+}
+
+div{
+    text-align:center;
+}
+
+.btn{
+    margin-top: 2%;
+    background-color: #F1654C;
+    border:none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-family:"San Francisco Display";
+    font-weight:bold;
+    font-size:20px;
+    color:#FFFFFF;
+    text-align:center;
+}
+
+.btn:hover{
+    background-color: green;
+}
+#Design{
+    float:right;
+    font-family:"San Francisco Display";
+    font-weight:lighter;
+    font-size:30px;
+    padding-right: 20px;
+}

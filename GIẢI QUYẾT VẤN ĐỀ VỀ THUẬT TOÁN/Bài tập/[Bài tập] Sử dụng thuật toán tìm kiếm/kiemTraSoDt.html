@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var phoneNumber = ['0905202021','0935130370','0979185650'];
+        function validatePhone(arr){
+            var reg = /^[097,098,038]+[0-9]{3}[0-9]{7}$/
+            for(i=0;i<arr.lenght;i++){
+                if(reg.test(arr[i])){
+                    return arr[i];
+                }
+            }
+        }
+        document.write("số điện thoại trong mảng hợp lệ là: "+ validatePhone(phoneNumber));
+
+    </script>
+</body>
+</html>
